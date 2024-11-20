@@ -9,20 +9,34 @@ function NewProject({ onAdd, onCancel }) {
   const description = React.useRef();
   const dueDate = React.useRef();
 
+  const [modalMessage, setModalMessage] = React.useState("Oops ... looks like you forgot to enter a value.");
+
   function handleSave() {
     const enteredTitle = title.current.value;
     const enteredDescription = description.current.value;
     const enteredDueDate = dueDate.current.value;
 
+    // Check for empty fields
     if (
       enteredTitle.trim() === "" ||
       enteredDescription.trim() === "" ||
       enteredDueDate.trim() === ""
     ) {
+      setModalMessage("Please make sure you provide a valid value for every input field.");
       modal.current.open();
       return;
     }
 
+    // Check for past date
+    const today = new Date();
+    const dueDateValue = new Date(enteredDueDate);
+    if (dueDateValue < today.setHours(0, 0, 0, 0)) { // Sets time to start of today for comparison
+      setModalMessage("Due Date cannot be in the past. Please select a future date.");
+      modal.current.open();
+      return;
+    }
+
+    // If all validations pass, call onAdd
     onAdd({
       title: enteredTitle,
       description: enteredDescription,
@@ -36,12 +50,7 @@ function NewProject({ onAdd, onCancel }) {
         <h2 className="text-xl font-bold text-stone-700 my-4 ">
           Invalid Input
         </h2>
-        <p className="text-stone-600 mb-4">
-          Oops ... looks like you forgot to enter a value.
-        </p>
-        <p className="text-stone-600 mb-4">
-          Please make sure you provide a valid value for every input field.
-        </p>
+        <p className="text-stone-600 mb-4">{modalMessage}</p>
       </Modal>
       <div className="w-[35rem] mt-16">
         <menu className="flex items-center justify-end gap-4 my-4">
@@ -70,4 +79,3 @@ function NewProject({ onAdd, onCancel }) {
 }
 
 export default NewProject;
-

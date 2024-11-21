@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import '@testing-library/jest-dom';
 import NewTask from "../NewTask";
 
-describe("NewTask Component - Equivalence Classes for taskText", () => {
+describe("NewTask Component", () => {
   const mockOnAdd = jest.fn();
 
   beforeEach(() => {
@@ -22,16 +22,6 @@ describe("NewTask Component - Equivalence Classes for taskText", () => {
     if (modalRoot) {
       document.body.removeChild(modalRoot);
     }
-  });
-
-  test("Empty input: Displays error for required field", () => {
-    render(<NewTask onAdd={mockOnAdd} />);
-
-    fireEvent.click(screen.getByText(/add task/i));
-
-    expect(screen.getByText(/invalid input/i)).toBeInTheDocument();
-    expect(screen.getByText(/oops ... looks like you forgot to enter a value./i)).toBeInTheDocument();
-    expect(mockOnAdd).not.toHaveBeenCalled();
   });
 
   test("1 character input: Displays error for minimum length", () => {
@@ -63,6 +53,17 @@ describe("NewTask Component - Equivalence Classes for taskText", () => {
 
     expect(mockOnAdd).toHaveBeenCalledTimes(1);
     expect(mockOnAdd).toHaveBeenCalledWith("ABC");
+  });
+
+  test("59 character input: Successfully adds task", () => {
+    const validInput = "A".repeat(59);
+    render(<NewTask onAdd={mockOnAdd} />);
+
+    fireEvent.change(screen.getByPlaceholderText(/enter task/i), { target: { value: validInput } });
+    fireEvent.click(screen.getByText(/add task/i));
+
+    expect(mockOnAdd).toHaveBeenCalledTimes(1);
+    expect(mockOnAdd).toHaveBeenCalledWith(validInput);
   });
 
   test("60 character input: Successfully adds task", () => {

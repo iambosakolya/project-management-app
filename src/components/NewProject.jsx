@@ -27,6 +27,21 @@ function NewProject({ onAdd, onCancel }) {
       return;
     }
 
+
+    // Validate description length
+    if (enteredTitle.length < 2 || enteredTitle.length > 30) {
+      setModalMessage("Title must be between 2 and 30 characters.");
+      modal.current.open();
+      return;
+    }
+
+    // Validate description length
+    if (enteredDescription.length < 2 || enteredDescription.length > 255) {
+      setModalMessage("Description must be between 2 and 255 characters.");
+      modal.current.open();
+      return;
+    }
+
     // Check for past date
     const today = new Date();
     const dueDateValue = new Date(enteredDueDate);
@@ -47,9 +62,7 @@ function NewProject({ onAdd, onCancel }) {
   return (
     <>
       <Modal ref={modal} buttonCaption="Okay">
-        <h2 className="text-xl font-bold text-stone-700 my-4 ">
-          Invalid Input
-        </h2>
+        <h2 className="text-xl font-bold text-stone-700 my-4">Invalid Input</h2>
         <p className="text-stone-600 mb-4">{modalMessage}</p>
       </Modal>
       <div className="w-[35rem] mt-16">
@@ -63,10 +76,11 @@ function NewProject({ onAdd, onCancel }) {
             </button>
           </li>
           <li>
-          <button
-            className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950"
-            onClick={handleSave}>
-            Save
+            <button
+              className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950"
+              onClick={handleSave}
+            >
+              Save
             </button>
           </li>
         </menu>

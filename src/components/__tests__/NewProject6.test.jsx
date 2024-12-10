@@ -11,7 +11,6 @@ describe("NewProject Component", () => {
     HTMLDialogElement.prototype.showModal = jest.fn();
   });
 
-  // Add modal container before each test
   beforeEach(() => {
     mockOnAdd.mockClear();
     mockOnCancel.mockClear();
@@ -21,7 +20,6 @@ describe("NewProject Component", () => {
     document.body.appendChild(modalRoot);
   });
 
-  // Remove modal container after each test
   afterEach(() => {
     const modalRoot = document.getElementById("modal-root");
     if (modalRoot) {

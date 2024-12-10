@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1732205444067" clover="3.2.0">
-  <project timestamp="1732205444067" name="All files">
+<coverage generated="1733147865183" clover="3.2.0">
+  <project timestamp="1733147865183" name="All files">
     <metrics statements="58" coveredstatements="58" conditionals="25" coveredconditionals="25" methods="10" coveredmethods="10" elements="93" coveredelements="93" complexity="0" loc="58" ncloc="58" packages="1" files="5" classes="5"/>
-    <file name="Button.jsx" path="/home/olya/project-management-main-1/src/components/Button.jsx">
+    <file name="Button.jsx" path="/home/olya/project-management-main/src/components/Button.jsx">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="4" count="58" type="stmt"/>
     </file>
-    <file name="Input.jsx" path="/home/olya/project-management-main-1/src/components/Input.jsx">
+    <file name="Input.jsx" path="/home/olya/project-management-main/src/components/Input.jsx">
       <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
       <line num="24" count="2" type="cond" truecount="2" falsecount="0"/>
       <line num="25" count="96" type="stmt"/>
       <line num="27" count="96" type="stmt"/>
     </file>
-    <file name="Modal.jsx" path="/home/olya/project-management-main-1/src/components/Modal.jsx">
+    <file name="Modal.jsx" path="/home/olya/project-management-main/src/components/Modal.jsx">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <line num="5" count="4" type="stmt"/>
       <line num="6" count="58" type="stmt"/>
@@ -21,7 +21,7 @@
       <line num="10" count="13" type="stmt"/>
       <line num="14" count="58" type="stmt"/>
     </file>
-    <file name="NewProject.jsx" path="/home/olya/project-management-main-1/src/components/NewProject.jsx">
+    <file name="NewProject.jsx" path="/home/olya/project-management-main/src/components/NewProject.jsx">
       <metrics statements="28" coveredstatements="28" conditionals="15" coveredconditionals="15" methods="2" coveredmethods="2"/>
       <line num="6" count="32" type="stmt"/>
       <line num="8" count="32" type="stmt"/>
@@ -52,7 +52,7 @@
       <line num="55" count="12" type="stmt"/>
       <line num="62" count="32" type="stmt"/>
     </file>
-    <file name="NewTask.jsx" path="/home/olya/project-management-main-1/src/components/NewTask.jsx">
+    <file name="NewTask.jsx" path="/home/olya/project-management-main/src/components/NewTask.jsx">
       <metrics statements="20" coveredstatements="20" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
       <line num="5" count="26" type="stmt"/>
       <line num="6" count="26" type="stmt"/>

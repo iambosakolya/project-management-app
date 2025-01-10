@@ -1,5 +1,5 @@
-import React from "react";
-import NewTask from "./NewTask";
+import React from 'react';
+import NewTask from './NewTask';
 
 function Tasks({ onAdd, onDelete, tasks }) {
   return (

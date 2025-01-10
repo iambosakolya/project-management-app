@@ -10,12 +10,10 @@ Techlologies used:
 2. Tailwind CSS 
 3. Jest + React testing library for testing
 
-
 ## Features
 
 - **Project creation and management**: Create, edit, and delete projects with ease.
 - **Sub-task creation and management**: Create, edit, and delete sub-tasks with ease.
-
 
 ## Installation
 

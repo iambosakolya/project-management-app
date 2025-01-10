@@ -1,5 +1,5 @@
-import React from "react";
-import Tasks from "./Tasks.jsx";
+import React from 'react';
+import Tasks from './Tasks.jsx';
 function SelectedProject({
   project,
   onDelete,
@@ -7,10 +7,10 @@ function SelectedProject({
   onDeleteTask,
   tasks,
 }) {
-  const formattedDate = new Date(project.dueDate).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
+  const formattedDate = new Date(project.dueDate).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
   });
   return (
     <div className="w-[35rem] mt-16">
@@ -31,7 +31,7 @@ function SelectedProject({
           {project.description}
         </p>
       </header>
-      <Tasks onAdd={onAddTask} onDelete={onDeleteTask} tasks={tasks}/>
+      <Tasks onAdd={onAddTask} onDelete={onDeleteTask} tasks={tasks} />
     </div>
   );
 }

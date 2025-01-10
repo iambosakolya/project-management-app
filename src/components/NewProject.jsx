@@ -1,6 +1,6 @@
-import React from "react";
-import Input from "./Input";
-import Modal from "./Modal";
+import React from 'react';
+import Input from './Input';
+import Modal from './Modal';
 
 function NewProject({ onAdd, onCancel }) {
   const modal = React.useRef();
@@ -9,7 +9,9 @@ function NewProject({ onAdd, onCancel }) {
   const description = React.useRef();
   const dueDate = React.useRef();
 
-  const [modalMessage, setModalMessage] = React.useState("Oops ... looks like you forgot to enter a value.");
+  const [modalMessage, setModalMessage] = React.useState(
+    'Oops ... looks like you forgot to enter a value.'
+  );
 
   function handleSave() {
     const enteredTitle = title.current.value;
@@ -18,26 +20,27 @@ function NewProject({ onAdd, onCancel }) {
 
     // Check for empty fields
     if (
-      enteredTitle.trim() === "" ||
-      enteredDescription.trim() === "" ||
-      enteredDueDate.trim() === ""
+      enteredTitle.trim() === '' ||
+      enteredDescription.trim() === '' ||
+      enteredDueDate.trim() === ''
     ) {
-      setModalMessage("Please make sure you provide a valid value for every input field.");
+      setModalMessage(
+        'Please make sure you provide a valid value for every input field.'
+      );
       modal.current.open();
       return;
     }
 
-
     // Validate description length
     if (enteredTitle.length < 2 || enteredTitle.length > 30) {
-      setModalMessage("Title must be between 2 and 30 characters.");
+      setModalMessage('Title must be between 2 and 30 characters.');
       modal.current.open();
       return;
     }
 
     // Validate description length
     if (enteredDescription.length < 2 || enteredDescription.length > 255) {
-      setModalMessage("Description must be between 2 and 255 characters.");
+      setModalMessage('Description must be between 2 and 255 characters.');
       modal.current.open();
       return;
     }
@@ -45,8 +48,11 @@ function NewProject({ onAdd, onCancel }) {
     // Check for past date
     const today = new Date();
     const dueDateValue = new Date(enteredDueDate);
-    if (dueDateValue < today.setHours(0, 0, 0, 0)) { // Sets time to start of today for comparison
-      setModalMessage("Due Date cannot be in the past. Please select a future date.");
+    if (dueDateValue < today.setHours(0, 0, 0, 0)) {
+      // Sets time to start of today for comparison
+      setModalMessage(
+        'Due Date cannot be in the past. Please select a future date.'
+      );
       modal.current.open();
       return;
     }
